@@ -12,7 +12,7 @@ class Resource extends Component {
       error:null
     }
   }
-  componentDidMount(){
+  componentWillReceiveProps(){
     this.setState({...this.state, isFetching:true})
     let number = this.props.match.params.id
     fetch(`https://swapi.co/api/${this.props.resource}/${number}/`)

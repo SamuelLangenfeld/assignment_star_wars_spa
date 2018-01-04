@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
 import {Link} from 'react-router-dom'
 import parse from './parse'
-
+import {withRouter} from 'react-router-dom'
 
 
 
@@ -18,7 +18,7 @@ class ResourceList extends Component {
       error:null
     }
   }
-  componentDidMount(){
+  componentWillReceiveProps(){
  
     this.setState({...this.state, isFetching:true})
     fetch(`https://swapi.co/api/${this.props.resource}/`)
@@ -27,7 +27,7 @@ class ResourceList extends Component {
     })
     .then(response =>{
       let resources = response.results
-   
+      
       this.setState({[this.props.resource] :resources, isFetching:false, error:false})
     })
     .catch(e=>{
@@ -54,6 +54,7 @@ class ResourceList extends Component {
 
        
        })  
+
     return (
 
       <div className="container">
@@ -67,4 +68,4 @@ class ResourceList extends Component {
   }
 }
 
-export default ResourceList
+export default withRouter(ResourceList)
