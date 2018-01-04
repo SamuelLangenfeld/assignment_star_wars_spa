@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
 import {Link} from 'react-router-dom'
-
+import parse from './parse'
 
 
 class People extends Component {
@@ -37,15 +37,17 @@ class People extends Component {
     if (this.state.people){
        let people = this.state.people
        peopleArray = people.map(person=>{
-       return Object.keys(person).map(key=>{
-       	
-		return <div><strong>{key}: </strong>{person[key]}</div>
 
-       })
+        let id = parse(person.url)
+       console.log(id)
+       	
+		return <div><strong><Link to={`/people/${id}`}>{person.name}</Link></strong></div>
+
+       
        })  
      
     }
-    console.log(peopleArray)
+        console.log(peopleArray)
     console.log("PeopleArray")
 
     return (
