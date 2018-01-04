@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import fetch from 'isomorphic-fetch'
-
+import {Link} from 'react-router-dom'
 class Films extends Component {
 
 
@@ -39,11 +39,12 @@ class Films extends Component {
   render(){
 
     let filmsArray= this.state.films.map(film=>{
-      return (<div key={film.number}><div>Title: {film.title}</div><div>Director: {film.director}</div><div>Producer: {film.producer}</div>
+      return (<div key={film.number}><Link to={`/films/${film.number}`}>Title: {film.title}</Link><div>Director: {film.director}</div><div>Producer: {film.producer}</div>
       <div>Date: {film.date}</div><div>Film Number: {film.number}</div><br /></div>)
     })
 
     return (
+
       <div className="container">
         <div className="Films">
           <h1>Star Wars Films</h1>

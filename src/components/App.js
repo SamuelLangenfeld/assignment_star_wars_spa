@@ -9,6 +9,8 @@ import ScrollToTop from './ScrollToTop'
 import Home from './Home'
 import Films from './Films'
 import Film from './Film'
+import People from './People'
+// import Person from './Person'
 
 
 const NavLinks = () => (
@@ -32,6 +34,8 @@ const App = () => (
         <Route exact path='/' component={Home} />
         <Route path="/films/:id" component={Film} />
         <Route path='/films' component={Films} />
+        
+        <Route path='/people' component={People} />
         <Route render={()=><h1>Page Not Found</h1>} />
       </Switch>
       <NavLinks />
