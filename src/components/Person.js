@@ -42,7 +42,7 @@ class Person extends Component {
 
 
       Promise.all(promiseArray).then(data=>{
-          person.films = data.slice(0,films.length).map(film=>film.name)
+          person.films = data.slice(0,films.length).map(film=>film.title)
           let index =films.length
           /*person.species = data.slice(index, index+response.planets.length).map(specie=>specie.name)
           index+=response.species.length*/
