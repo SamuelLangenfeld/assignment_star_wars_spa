@@ -50,11 +50,10 @@ class ResourceList extends Component {
 
         let id = parse(resource.url)
         
-		return <div><strong><Link to={`/${this.props.resource}/${id}`}>{resource[this.props.name]}</Link></strong></div>
+		return <div key={resource.url}><strong><Link to={`/${this.props.resource}/${id}`}>{resource[this.props.name]}</Link></strong></div>
 
        
        })  
-        console.log(resourceArray)
     return (
 
       <div className="container">

@@ -12,6 +12,7 @@ import Film from './Film'
 import People from './People'
 import Person from './Person'
 import ResourceList from './ResourceList'
+import Resource from './Resource'
 
 const NavLinks = () => (
   <div className="NavLinks">
@@ -24,6 +25,18 @@ const NavLinks = () => (
      <NavLink activeClassName="active" exact to="/people">
       People
     </NavLink>{' '}
+    <NavLink activeClassName="active" exact to="/planets">
+      Planets
+    </NavLink>{' '}
+    <NavLink activeClassName="active" exact to="/vehicles">
+      Vehicles
+    </NavLink>{' '}
+    <NavLink activeClassName="active" exact to="/starships">
+      Starships
+    </NavLink>{' '}
+    <NavLink activeClassName="active" exact to="/species">
+      Species
+    </NavLink>{' '}
   </div>
 )
 
@@ -35,11 +48,20 @@ const App = () => (
       <NavLinks />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path="/films/:id" component={Film} />
-         <Route path='/people/:id' component={Person} />
-        <Route path='/films' render = {() => <ResourceList resource="films" name="title"/>  }  />
+        <Route exact path="/films/:id" component={Film} />
+         <Route exact path='/people/:id' component={Person} />
+        <Route exact path='/films' render = {() => <ResourceList resource="films" name="title"/>  }  />
         
-        <Route path='/people' component={People} />
+        <Route exact path='/people' render = {() => <ResourceList resource="people" name="name"/>  }  />
+        <Route exact path='/planets' render = {() => <ResourceList resource="planets" name="name"/>  }  />
+        <Route exact path='/planets/:id' render = {() => <Resource resource="planets" name="name"/>  }  />
+        <Route exact path='/vehicles' render = {() => <ResourceList resource="vehicles" name="name"/>  }  />
+        <Route exact path='/vehicles/:id' render = {() => <Resource resource="vehicles" name="name"/>  }  />
+        <Route exact path='/species' render = {() => <ResourceList resource="species" name="name"/>  }  />
+        <Route exact path='/species/:id' render = {() => <Resource resource="species" name="name"/>  }  />
+        <Route exact path='/starships' render = {() => <ResourceList resource="starships" name="name"/>  }  />
+        <Route exact path='/starships/:id' render = {() => <Resource resource="starships" name="name"/>  }  />
+
         <Route render={()=><h1>Page Not Found</h1>} />
       </Switch>
       <NavLinks />

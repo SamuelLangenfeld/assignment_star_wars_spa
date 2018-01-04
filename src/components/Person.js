@@ -63,7 +63,7 @@ class Person extends Component {
     let person
     if (this.state.person){
       person = Object.keys(this.state.person).map(key=>{
-          return <div><strong>{key}: </strong>{this.state.person[key]}</div>
+          return <div key={key}><strong>{key}: </strong>{this.state.person[key]}</div>
       })
     }
     return (
