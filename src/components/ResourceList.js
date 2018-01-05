@@ -23,7 +23,6 @@ class ResourceList extends Component {
       .then(response => {
         let resources = response.results;
         console.log("MOUNTING");
-        console.log("RECEIVED RESPONSE");
         this.setState({
           [this.props.resource]: resources,
           isFetching: false,
@@ -39,8 +38,10 @@ class ResourceList extends Component {
       });
   }
 
+  /*
+
   componentWillReceiveProps(nextProps) {
-    if (!this.state[nextProps.resource]) {
+    if (this.props != nextProps) {
       this.setState({ error: null, isFetching: true });
       fetch(`https://swapi.co/api/${nextProps.resource}/`)
         .then(response => {
@@ -49,9 +50,6 @@ class ResourceList extends Component {
         .then(response => {
           let resources = response.results;
           console.log("RECEIVING PROPS");
-
-          console.log("RECEIVED RESPONSE");
-
           this.setState({
             [this.props.resource]: resources,
             isFetching: false,
@@ -68,8 +66,11 @@ class ResourceList extends Component {
     }
   }
 
+  */
+
   render() {
     console.log("RENDERING");
+    console.log("PROPS RESOURCE " + this.props.resource);
 
     let resourceArray;
 
@@ -94,7 +95,7 @@ class ResourceList extends Component {
 
     return (
       <div className="container">
-        <div className="People">
+        <div>
           <h1>Star Wars {this.props.resource}</h1>
           {this.state.isFetching ? <h2>Loading</h2> : null}
           {resourceArray}

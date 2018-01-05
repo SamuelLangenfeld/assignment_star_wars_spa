@@ -35,8 +35,10 @@ class Resource extends Component {
       });
   }
 
+  /*
+
   componentWillReceiveProps(nextProps) {
-    if (!this.state[nextProps.resource]) {
+    if (this.props != nextProps) {
       this.setState({ error: null, isFetching: true });
       let number = this.props.match.params.id;
       fetch(`https://swapi.co/api/${this.props.resource}/${number}/`)
@@ -60,6 +62,8 @@ class Resource extends Component {
         });
     }
   }
+
+  */
 
   render() {
     console.log("RENDERING");
