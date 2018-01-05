@@ -15,7 +15,8 @@ import ResourceList from './ResourceList'
 import Resource from './Resource'
 import {withRouter} from 'react-router-dom'
 
-const NavLinks = () => (
+const NavLinks = () => {
+  return (
   <div className="NavLinks">
     <NavLink activeClassName="active" exact to="/">
       Home
@@ -39,7 +40,7 @@ const NavLinks = () => (
       Species
     </NavLink>{' '}
   </div>
-)
+)}
 
 
 
@@ -50,7 +51,7 @@ const App = () => (
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path="/films/:id" component={Film} />
-         <Route exact path='/people/:id' component={Person} />
+        <Route exact path='/people/:id' component={Person} />
         <Route exact path='/films' render = {(props) => <ResourceList resource="films" name="title"/>  }  />
         
         <Route exact path='/people' render = {(props) => <ResourceList resource="people" name="name"/>  }  />

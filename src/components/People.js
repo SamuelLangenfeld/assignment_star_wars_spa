@@ -15,6 +15,8 @@ class People extends Component {
       error:null
     }
   }
+
+
   componentDidMount(){
     
     this.setState({...this.state, isFetching:true})
